@@ -15,16 +15,24 @@ namespace ExaminationSystem.FormUI.Forms
     public partial class MainForm : Form
     {
         private readonly IGenericService<User> userService;
+        private readonly IGenericService<Role> roleService;
 
-        public MainForm(IGenericService<User> userService)
+        public MainForm(IGenericService<User> userService,IGenericService<Role> roleService)
         {
             InitializeComponent();
             this.userService = userService;
+            this.roleService = roleService;
             Load += MainForm_Load;
         }
 
         private async void MainForm_Load(object? sender, EventArgs e)
         {
+           await roleService.AddAsync(new Role()
+            {
+                Name="Admin"
+            });
+            await roleService.SaveChangesAsync();
+
             var users = await userService.GetAllAsync();
             foreach (var user in users)
             {
@@ -36,9 +44,9 @@ namespace ExaminationSystem.FormUI.Forms
         {
             var melek = new User()
             {
-                Email = "melekkama_46@hotmail.com",
-                FirstName = "Melek",
-                LastName = "Kama",
+                Email = textBox1.Text,
+                FirstName = "Melsan",
+                LastName = "Yılmaz",
                 Passowrd = "12011998"
             };
 
