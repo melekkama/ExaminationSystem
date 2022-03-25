@@ -3,5 +3,6 @@
 public struct RoleInfo
 {
     public const string Admin = "Admin";
-    public const string User = "User";
+    public const string Examiner = "Examiner";
+    public const string Student = "Student";
 }

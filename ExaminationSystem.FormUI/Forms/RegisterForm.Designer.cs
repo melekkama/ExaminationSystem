@@ -38,7 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_firstName = new System.Windows.Forms.TextBox();
             this.btn_register = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rb_student = new System.Windows.Forms.RadioButton();
+            this.rb_examiner = new System.Windows.Forms.RadioButton();
+            this.rb_admin = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -54,24 +59,25 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tb_firstName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_register, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btn_register, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tb_password
             // 
             this.tb_password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_password.Location = new System.Drawing.Point(163, 301);
+            this.tb_password.Location = new System.Drawing.Point(163, 249);
             this.tb_password.Name = "tb_password";
             this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(634, 27);
@@ -80,7 +86,7 @@
             // tb_email
             // 
             this.tb_email.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_email.Location = new System.Drawing.Point(163, 211);
+            this.tb_email.Location = new System.Drawing.Point(163, 174);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(634, 27);
             this.tb_email.TabIndex = 7;
@@ -88,7 +94,7 @@
             // tb_lastName
             // 
             this.tb_lastName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_lastName.Location = new System.Drawing.Point(163, 121);
+            this.tb_lastName.Location = new System.Drawing.Point(163, 99);
             this.tb_lastName.Name = "tb_lastName";
             this.tb_lastName.Size = new System.Drawing.Size(634, 27);
             this.tb_lastName.TabIndex = 6;
@@ -98,9 +104,9 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 270);
+            this.label4.Location = new System.Drawing.Point(3, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 90);
+            this.label4.Size = new System.Drawing.Size(154, 75);
             this.label4.TabIndex = 4;
             this.label4.Text = "Password";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,9 +116,9 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(3, 180);
+            this.label3.Location = new System.Drawing.Point(3, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 90);
+            this.label3.Size = new System.Drawing.Size(154, 75);
             this.label3.TabIndex = 3;
             this.label3.Text = "Email";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,9 +128,9 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 90);
+            this.label2.Location = new System.Drawing.Point(3, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 90);
+            this.label2.Size = new System.Drawing.Size(154, 75);
             this.label2.TabIndex = 1;
             this.label2.Text = "Last Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -136,7 +142,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 90);
+            this.label1.Size = new System.Drawing.Size(154, 75);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,7 +150,7 @@
             // tb_firstName
             // 
             this.tb_firstName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_firstName.Location = new System.Drawing.Point(163, 31);
+            this.tb_firstName.Location = new System.Drawing.Point(163, 24);
             this.tb_firstName.Name = "tb_firstName";
             this.tb_firstName.Size = new System.Drawing.Size(634, 27);
             this.tb_firstName.TabIndex = 5;
@@ -152,13 +158,57 @@
             // btn_register
             // 
             this.btn_register.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_register.Location = new System.Drawing.Point(163, 363);
+            this.btn_register.Location = new System.Drawing.Point(163, 378);
             this.btn_register.Name = "btn_register";
-            this.btn_register.Size = new System.Drawing.Size(634, 84);
+            this.btn_register.Size = new System.Drawing.Size(634, 69);
             this.btn_register.TabIndex = 9;
-            this.btn_register.Text = "Kayıt Ol";
+            this.btn_register.Text = "Register";
             this.btn_register.UseVisualStyleBackColor = true;
             this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.rb_student);
+            this.flowLayoutPanel1.Controls.Add(this.rb_examiner);
+            this.flowLayoutPanel1.Controls.Add(this.rb_admin);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(163, 303);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(634, 69);
+            this.flowLayoutPanel1.TabIndex = 10;
+            // 
+            // rb_student
+            // 
+            this.rb_student.AutoSize = true;
+            this.rb_student.Location = new System.Drawing.Point(3, 3);
+            this.rb_student.Name = "rb_student";
+            this.rb_student.Size = new System.Drawing.Size(81, 24);
+            this.rb_student.TabIndex = 1;
+            this.rb_student.Text = "Student";
+            this.rb_student.UseVisualStyleBackColor = true;
+            // 
+            // rb_examiner
+            // 
+            this.rb_examiner.AutoSize = true;
+            this.rb_examiner.Location = new System.Drawing.Point(90, 3);
+            this.rb_examiner.Name = "rb_examiner";
+            this.rb_examiner.Size = new System.Drawing.Size(91, 24);
+            this.rb_examiner.TabIndex = 0;
+            this.rb_examiner.TabStop = true;
+            this.rb_examiner.Text = "Examiner";
+            this.rb_examiner.UseVisualStyleBackColor = true;
+            // 
+            // rb_admin
+            // 
+            this.rb_admin.AutoSize = true;
+            this.rb_admin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rb_admin.Location = new System.Drawing.Point(187, 3);
+            this.rb_admin.Name = "rb_admin";
+            this.rb_admin.Size = new System.Drawing.Size(74, 24);
+            this.rb_admin.TabIndex = 2;
+            this.rb_admin.TabStop = true;
+            this.rb_admin.Text = "Admin";
+            this.rb_admin.UseVisualStyleBackColor = true;
             // 
             // RegisterForm
             // 
@@ -170,6 +220,8 @@
             this.Text = "RegisterForm";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -186,5 +238,9 @@
         private TextBox tb_lastName;
         private TextBox tb_password;
         private Button btn_register;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private RadioButton rb_student;
+        private RadioButton rb_examiner;
+        private RadioButton rb_admin;
     }
 }

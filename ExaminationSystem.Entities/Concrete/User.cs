@@ -7,4 +7,7 @@ public class User:EntityBase
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Passowrd { get; set; }
+
+    public Guid RoleId { get; set; }
+    public Role Role { get; set; }
 }

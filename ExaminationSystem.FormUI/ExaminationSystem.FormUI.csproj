@@ -41,10 +41,4 @@
 		<ProjectReference Include="..\ExaminationSystem.BLL\ExaminationSystem.BLL.csproj" />
 	</ItemGroup>
 
-
-
-	<ItemGroup>
-	  <Folder Include="UserControls\" />
-	</ItemGroup>
-
 </Project>

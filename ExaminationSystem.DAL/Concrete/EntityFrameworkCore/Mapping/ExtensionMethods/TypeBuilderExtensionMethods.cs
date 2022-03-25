@@ -1,4 +1,5 @@
-﻿using ExaminationSystem.Entities.Interfaces;
+﻿using ExaminationSystem.DAL.StringInfos;
+using ExaminationSystem.Entities.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -14,7 +15,7 @@ public static class TypeBuilderExtensionMethods
         builder.Property(x => x.Id).HasDefaultValueSql("newid()").ValueGeneratedOnAdd();
         builder.Property(x => x.CreatedTime).HasDefaultValueSql("getdate()").ValueGeneratedOnAdd().IsRequired();
         builder.Property(x => x.UpdatedTime).IsRequired(false);
-        builder.Property(x => x.CreatedUserId).IsRequired();
+        builder.Property(x => x.CreatedUserId).IsRequired().HasDefaultValue(new Guid(SystemUserInfo.SystemUserId)); ;
         builder.Property(x => x.UpdatedUserId).IsRequired(false);
         builder.Property(x => x.IsDeleted).HasDefaultValue(false).IsRequired();
 

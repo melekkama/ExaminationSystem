@@ -1,4 +1,5 @@
 ﻿using ExaminationSystem.BLL.Interfaces;
+using ExaminationSystem.DAL.StringInfos;
 using ExaminationSystem.Entities.Concrete;
 
 namespace ExaminationSystem.FormUI.Forms
@@ -15,17 +16,26 @@ namespace ExaminationSystem.FormUI.Forms
 
         private async void btn_register_Click(object sender, EventArgs e)
         {
-            var user = new User()
+            var roles = new Dictionary<string, bool>
             {
-                FirstName = tb_firstName.Text,
-                LastName = tb_lastName.Text,
-                Email = tb_email.Text,
-                Passowrd = tb_password.Text
+                { RoleInfo.Student, rb_student.Checked },
+                { RoleInfo.Examiner, rb_examiner.Checked },
+                { RoleInfo.Admin, rb_admin.Checked }
             };
+            var selectedRole=roles.FirstOrDefault(x=>x.Value);
+            MessageBox.Show(selectedRole.Key);
 
-            await userService.AddAsync(user);
-            await userService.SaveChangesAsync();
-            MessageBox.Show("Kayıt başarılı");
+            //var user = new User()
+            //{
+            //    FirstName = tb_firstName.Text,
+            //    LastName = tb_lastName.Text,
+            //    Email = tb_email.Text,
+            //    Passowrd = tb_password.Text
+            //};
+
+            //await userService.AddAsync(user);
+            //await userService.SaveChangesAsync();
+            //MessageBox.Show("Kayıt başarılı");
         }
     }
 }
