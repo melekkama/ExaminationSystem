@@ -14,5 +14,10 @@ public class UserMap : IEntityTypeConfiguration<User>
         builder.Property(x=>x.LastName).IsRequired();
         builder.Property(x=>x.Email).IsRequired();
         builder.Property(x=>x.Passowrd).IsRequired();
+
+        builder.HasOne(x => x.Role)
+            .WithMany(x=>x.Users)
+            .HasForeignKey(x=>x.RoleId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
