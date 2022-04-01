@@ -1,7 +1,8 @@
 #nullable disable
 using ExaminationSystem.BLL.Containers.MicrosoftIOC;
 using ExaminationSystem.FormUI.Forms;
-
+using ExaminationSystem.FormUI.Services;
+using MaterialSkin.Controls;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,7 +25,9 @@ namespace ExaminationSystem.FormUI
                 })
                 .ConfigureServices((context,services) => {
                     services.AddDependencies(context.Configuration);
+                    services.AddScoped<IDefaultMaterialFormTheme,DefaultMaterialFormTheme>();
                     services.AddType<Form>();
+                    services.AddType<MaterialForm>();
                 });
 
             var host =builder.Build();
@@ -32,7 +35,7 @@ namespace ExaminationSystem.FormUI
             IServiceProvider services = serviceScope.ServiceProvider;
             var dbContext = services.GetRequiredService<DbContext>();
             dbContext.Database.Migrate();
-            Application.Run(services.GetRequiredService<LoginForm>());
+            Application.Run(services.GetRequiredService<RegisterForm>());
         }
     }
 }

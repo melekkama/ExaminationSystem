@@ -1,17 +1,20 @@
 ﻿using ExaminationSystem.BLL.Interfaces;
 using ExaminationSystem.DAL.StringInfos;
 using ExaminationSystem.Entities.Concrete;
+using ExaminationSystem.FormUI.Services;
+using MaterialSkin.Controls;
 
 namespace ExaminationSystem.FormUI.Forms
 {
-    public partial class RegisterForm : Form
+    public partial class RegisterForm : MaterialForm
     {
         private readonly IGenericService<User> userService;
         private readonly IGenericService<Role> roleService;
 
-        public RegisterForm(IGenericService<User> userService, IGenericService<Role> roleService)
+        public RegisterForm(IGenericService<User> userService, IGenericService<Role> roleService,IDefaultMaterialFormTheme defaultMaterialFormTheme)
         {
             InitializeComponent();
+            defaultMaterialFormTheme.UseTheme(this);
             this.userService = userService;
             this.roleService = roleService;
         }
