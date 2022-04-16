@@ -1,23 +1,18 @@
 ﻿using ExaminationSystem.BLL.Interfaces;
 using ExaminationSystem.Entities.Concrete;
+using ExaminationSystem.FormUI.Services;
+using MaterialSkin.Controls;
 
 namespace ExaminationSystem.FormUI.Forms
 {
-    public partial class MainForm : Form
+    public partial class MainForm : MaterialForm
     {
-        public MainForm()
+        public MainForm(IDefaultMaterialFormTheme defaultMaterialFormTheme)
         {
             InitializeComponent();
-            Load += MainForm_Load;
+            defaultMaterialFormTheme.UseTheme(this);
         }
 
-        private async void MainForm_Load(object? sender, EventArgs e)
-        {
-        }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

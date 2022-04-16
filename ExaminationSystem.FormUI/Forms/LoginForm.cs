@@ -10,4 +10,8 @@ public partial class LoginForm : MaterialForm
         InitializeComponent();
         defaultMaterialFormTheme.UseTheme(this);
     }
+
+    private void LoginForm_Load(object sender, EventArgs e)
+    {
+    }
 }

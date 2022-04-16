@@ -11,7 +11,7 @@ public class DefaultMaterialFormTheme : IDefaultMaterialFormTheme
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(form);
         materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
-        materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
+        materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.DeepPurple700, MaterialSkin.TextShade.WHITE);
         return materialSkinManager;
     }
 }
