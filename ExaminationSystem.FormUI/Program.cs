@@ -35,7 +35,7 @@ namespace ExaminationSystem.FormUI
             IServiceProvider services = serviceScope.ServiceProvider;
             var dbContext = services.GetRequiredService<DbContext>();
             dbContext.Database.Migrate();
-            Application.Run(services.GetRequiredService<RegisterForm>());
+            Application.Run(services.GetRequiredService<LoginForm>());
         }
     }
 }
