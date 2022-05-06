@@ -1,6 +1,10 @@
 ﻿using ExaminationSystem.BLL.Interfaces;
+using ExaminationSystem.DAL.StringInfos;
 using ExaminationSystem.Entities.Concrete;
 using ExaminationSystem.FormUI.ExtensionMethods;
+using ExaminationSystem.FormUI.Forms.Areas.Admin;
+using ExaminationSystem.FormUI.Forms.Areas.Examiner;
+using ExaminationSystem.FormUI.Forms.Areas.Student;
 using ExaminationSystem.FormUI.Services;
 using ExaminationSystem.FormUI.States;
 using MaterialSkin.Controls;
@@ -35,7 +39,7 @@ public partial class LoginForm : MaterialForm
             return;
         }
 
-        var users = await userService.GetAllAsync();
+        var users = await userService.GetAllAsync("Role");
         var found = users.FirstOrDefault(user => user.Email == tb_email.Text && user.Passowrd == pb_password.Text);
         if (found == null)
         {
@@ -43,7 +47,13 @@ public partial class LoginForm : MaterialForm
             return;
         }
         LoginUserState.User = found;
-        MainForm mf = sp.GetRequiredService<MainForm>();
-        this.SwitchForm(mf);
+        Form form = found.Role.Name switch
+        {
+            RoleInfo.Examiner => sp.GetRequiredService<ExaminerMain>(),
+            RoleInfo.Admin => sp.GetRequiredService<AdminMain>(),
+            RoleInfo.Student => sp.GetRequiredService<StudentMain>(),
+            _ => throw new NotImplementedException()
+        };
+        this.SwitchForm(form);
     }
 }

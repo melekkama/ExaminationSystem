@@ -87,6 +87,7 @@
             this.tb_email.SkipLiterals = true;
             this.tb_email.TabIndex = 1;
             this.tb_email.TabStop = false;
+            this.tb_email.Text = "melekkama_46@hotmail.com";
             this.tb_email.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tb_email.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
             this.tb_email.TrailingIcon = null;
@@ -128,6 +129,7 @@
             this.pb_password.SkipLiterals = true;
             this.pb_password.TabIndex = 3;
             this.pb_password.TabStop = false;
+            this.pb_password.Text = "010798";
             this.pb_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.pb_password.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
             this.pb_password.TrailingIcon = null;
