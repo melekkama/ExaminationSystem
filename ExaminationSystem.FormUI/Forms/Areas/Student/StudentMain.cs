@@ -22,12 +22,16 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             InitializeComponent();
             defaultMaterialFormTheme.UseTheme(this);
             LoginUser = LoginUserState.User;
-            this.Text = $"{LoginUser.FirstName} {LoginUser.LastName}";
+            //this.Text = $"{LoginUser.FirstName} {LoginUser.LastName}";
         }
 
         private void StudentMain_Load(object sender, EventArgs e)
         {
-
+            lb_tarih.Text=(DateTime.Now.ToShortDateString());
+            lb_ad.Text = LoginUser.FirstName;
+            lb_soyad.Text = LoginUser.LastName;
+            lb_email.Text = LoginUser.Email;
+            lb_kayıt_tarih.Text = LoginUser.CreatedTime.ToShortDateString();
         }
     }
 }

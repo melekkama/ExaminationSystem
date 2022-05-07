@@ -56,4 +56,15 @@ public partial class LoginForm : MaterialForm
         };
         this.SwitchForm(form);
     }
+
+    private void btn_forgot_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("Lütfen emailinize gelen bağlantıya tıklayarak parolanızı sıfırlayınız.", "Parola Sıfırlama",MessageBoxButtons.OK,MessageBoxIcon.Information);
+    }
+
+    private void btn_go_register_Click(object sender, EventArgs e)
+    {
+        RegisterForm registerForm=sp.GetRequiredService<RegisterForm>();
+        this.SwitchForm(registerForm);
+    }
 }
