@@ -10,4 +10,6 @@ public class User:EntityBase
 
     public Guid RoleId { get; set; }
     public Role Role { get; set; }
+
+    public List<UserQuestion> UserQuestions { get; set; }
 }

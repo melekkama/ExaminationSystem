@@ -15,7 +15,6 @@
     <Folder Include="Mapping\" />
     <Folder Include="Models\" />
     <Folder Include="Settings\" />
-    <Folder Include="Seeding\" />
     <Folder Include="StringInfos\" />
   </ItemGroup>
 

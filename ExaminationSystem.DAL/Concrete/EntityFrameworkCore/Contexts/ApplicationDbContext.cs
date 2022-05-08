@@ -13,6 +13,9 @@ public class ApplicationDbContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(TypeBuilderExtensionMethods).Assembly);
     }
 
-    public DbSet<User>? Users { get; set; }
-    public DbSet<Role>? Roles { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<Question> Questions { get; set; }
+    public DbSet<UserQuestion> UserQuestions { get; set; }
+    public DbSet<Topic> Topics { get; set; }
 }

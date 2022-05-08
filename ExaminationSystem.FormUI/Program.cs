@@ -1,4 +1,5 @@
 #nullable disable
+using EExaminationSystem.FormUI.Seeding;
 using ExaminationSystem.BLL.Containers.MicrosoftIOC;
 using ExaminationSystem.FormUI.Forms;
 using ExaminationSystem.FormUI.Services;
@@ -23,16 +24,20 @@ namespace ExaminationSystem.FormUI
                     opt.SetBasePath(Directory.GetCurrentDirectory());
                     opt.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
                 })
-                .ConfigureServices((context,services) => {
+                .ConfigureServices((context, services) =>
+                {
                     services.AddDependencies(context.Configuration);
-                    services.AddScoped<IDefaultMaterialFormTheme,DefaultMaterialFormTheme>();
+                    services.AddScoped<TopicsSeeder>();
+                    services.AddScoped<IDefaultMaterialFormTheme, DefaultMaterialFormTheme>();
                     services.AddType<Form>();
                     services.AddType<MaterialForm>();
                 });
 
-            var host =builder.Build();
+            var host = builder.Build();
             using IServiceScope serviceScope = host.Services.CreateScope();
             IServiceProvider services = serviceScope.ServiceProvider;
+            var topicsSeeder = services.GetRequiredService<TopicsSeeder>();
+            topicsSeeder.Seed();
             var dbContext = services.GetRequiredService<DbContext>();
             dbContext.Database.Migrate();
             Application.Run(services.GetRequiredService<LoginForm>());
