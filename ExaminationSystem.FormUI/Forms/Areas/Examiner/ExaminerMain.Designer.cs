@@ -245,7 +245,7 @@
             this.tb_d.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb_d.LeadingIcon = null;
             this.tb_d.Location = new System.Drawing.Point(554, 297);
-            this.tb_d.MaxLength = 50;
+            this.tb_d.MaxLength = 150;
             this.tb_d.MouseState = MaterialSkin.MouseState.OUT;
             this.tb_d.Multiline = false;
             this.tb_d.Name = "tb_d";
@@ -262,7 +262,7 @@
             this.tb_c.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb_c.LeadingIcon = null;
             this.tb_c.Location = new System.Drawing.Point(554, 230);
-            this.tb_c.MaxLength = 50;
+            this.tb_c.MaxLength = 150;
             this.tb_c.MouseState = MaterialSkin.MouseState.OUT;
             this.tb_c.Multiline = false;
             this.tb_c.Name = "tb_c";
@@ -305,7 +305,7 @@
             this.tb_b.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb_b.LeadingIcon = null;
             this.tb_b.Location = new System.Drawing.Point(141, 297);
-            this.tb_b.MaxLength = 50;
+            this.tb_b.MaxLength = 150;
             this.tb_b.MouseState = MaterialSkin.MouseState.OUT;
             this.tb_b.Multiline = false;
             this.tb_b.Name = "tb_b";
@@ -322,7 +322,7 @@
             this.tb_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb_a.LeadingIcon = null;
             this.tb_a.Location = new System.Drawing.Point(141, 230);
-            this.tb_a.MaxLength = 50;
+            this.tb_a.MaxLength = 150;
             this.tb_a.MouseState = MaterialSkin.MouseState.OUT;
             this.tb_a.Multiline = false;
             this.tb_a.Name = "tb_a";
