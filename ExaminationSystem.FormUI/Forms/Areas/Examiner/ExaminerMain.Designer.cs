@@ -32,12 +32,10 @@
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.cb_topics = new MaterialSkin.Controls.MaterialComboBox();
             this.tb_soru = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.btn_save = new MaterialSkin.Controls.MaterialButton();
             this.cb_cevap = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.tb_d = new MaterialSkin.Controls.MaterialTextBox();
             this.tb_c = new MaterialSkin.Controls.MaterialTextBox();
@@ -104,12 +102,10 @@
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.materialComboBox1);
-            this.materialCard2.Controls.Add(this.materialLabel9);
+            this.materialCard2.Controls.Add(this.cb_topics);
             this.materialCard2.Controls.Add(this.tb_soru);
             this.materialCard2.Controls.Add(this.btn_save);
             this.materialCard2.Controls.Add(this.cb_cevap);
-            this.materialCard2.Controls.Add(this.materialLabel8);
             this.materialCard2.Controls.Add(this.materialLabel6);
             this.materialCard2.Controls.Add(this.tb_d);
             this.materialCard2.Controls.Add(this.tb_c);
@@ -132,48 +128,28 @@
             this.materialCard2.Size = new System.Drawing.Size(858, 531);
             this.materialCard2.TabIndex = 1;
             // 
-            // materialComboBox1
+            // cb_topics
             // 
-            this.materialComboBox1.AutoResize = false;
-            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox1.Depth = 0;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownHeight = 174;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.IntegralHeight = false;
-            this.materialComboBox1.ItemHeight = 43;
-            this.materialComboBox1.Items.AddRange(new object[] {
-            "MEVSİMLER VE İKLİM",
-            "DNA VE GENETİK KOD",
-            "BASINÇ",
-            "MADDE VE ENDÜSTRİ",
-            "BASİT MAKİNELER",
-            "ENERJİ DÖNÜŞÜMLERİ",
-            "ELEKTRİK"});
-            this.materialComboBox1.Location = new System.Drawing.Point(554, 94);
-            this.materialComboBox1.MaxDropDownItems = 4;
-            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.Size = new System.Drawing.Size(203, 49);
-            this.materialComboBox1.StartIndex = 0;
-            this.materialComboBox1.TabIndex = 19;
-            // 
-            // materialLabel9
-            // 
-            this.materialLabel9.AutoSize = true;
-            this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel9.Location = new System.Drawing.Point(475, 109);
-            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(60, 24);
-            this.materialLabel9.TabIndex = 18;
-            this.materialLabel9.Text = "KONU:";
+            this.cb_topics.AutoResize = false;
+            this.cb_topics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cb_topics.Depth = 0;
+            this.cb_topics.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cb_topics.DropDownHeight = 174;
+            this.cb_topics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_topics.DropDownWidth = 121;
+            this.cb_topics.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cb_topics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cb_topics.FormattingEnabled = true;
+            this.cb_topics.Hint = "Konu";
+            this.cb_topics.IntegralHeight = false;
+            this.cb_topics.ItemHeight = 43;
+            this.cb_topics.Location = new System.Drawing.Point(554, 109);
+            this.cb_topics.MaxDropDownItems = 4;
+            this.cb_topics.MouseState = MaterialSkin.MouseState.OUT;
+            this.cb_topics.Name = "cb_topics";
+            this.cb_topics.Size = new System.Drawing.Size(203, 49);
+            this.cb_topics.StartIndex = -1;
+            this.cb_topics.TabIndex = 19;
             // 
             // tb_soru
             // 
@@ -232,6 +208,7 @@
             this.cb_cevap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.cb_cevap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cb_cevap.FormattingEnabled = true;
+            this.cb_cevap.Hint = "Doğru cevap";
             this.cb_cevap.IntegralHeight = false;
             this.cb_cevap.ItemHeight = 43;
             this.cb_cevap.Items.AddRange(new object[] {
@@ -239,26 +216,13 @@
             "B",
             "C",
             "D"});
-            this.cb_cevap.Location = new System.Drawing.Point(471, 382);
+            this.cb_cevap.Location = new System.Drawing.Point(358, 380);
             this.cb_cevap.MaxDropDownItems = 4;
             this.cb_cevap.MouseState = MaterialSkin.MouseState.OUT;
             this.cb_cevap.Name = "cb_cevap";
-            this.cb_cevap.Size = new System.Drawing.Size(107, 49);
-            this.cb_cevap.StartIndex = 0;
+            this.cb_cevap.Size = new System.Drawing.Size(193, 49);
+            this.cb_cevap.StartIndex = -1;
             this.cb_cevap.TabIndex = 15;
-            // 
-            // materialLabel8
-            // 
-            this.materialLabel8.AutoSize = true;
-            this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel8.Location = new System.Drawing.Point(296, 395);
-            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(140, 24);
-            this.materialLabel8.TabIndex = 14;
-            this.materialLabel8.Text = "DOĞRU CEVAP:";
             // 
             // materialLabel6
             // 
@@ -452,12 +416,10 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialButton btn_save;
         private MaterialSkin.Controls.MaterialComboBox cb_cevap;
-        private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialTextBox tb_d;
         private MaterialSkin.Controls.MaterialTextBox tb_c;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 tb_soru;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialComboBox cb_topics;
     }
 }
