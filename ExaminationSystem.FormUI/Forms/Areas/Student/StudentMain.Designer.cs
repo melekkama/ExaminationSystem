@@ -34,7 +34,7 @@
             this.Exam = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lb_sınavSüre = new MaterialSkin.Controls.MaterialLabel();
             this.lb_tarih = new MaterialSkin.Controls.MaterialLabel();
             this.lb_hosgeldin = new MaterialSkin.Controls.MaterialLabel();
             this.lb_sınav_süre = new MaterialSkin.Controls.MaterialLabel();
@@ -60,6 +60,7 @@
             this.cb_aralık1 = new MaterialSkin.Controls.MaterialComboBox();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.btn_zamanKaydet = new MaterialSkin.Controls.MaterialButton();
             this.Profil = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
@@ -152,7 +153,7 @@
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.materialLabel1);
+            this.materialCard1.Controls.Add(this.lb_sınavSüre);
             this.materialCard1.Controls.Add(this.lb_tarih);
             this.materialCard1.Controls.Add(this.lb_hosgeldin);
             this.materialCard1.Controls.Add(this.lb_sınav_süre);
@@ -170,18 +171,18 @@
             this.materialCard1.Size = new System.Drawing.Size(684, 436);
             this.materialCard1.TabIndex = 0;
             // 
-            // materialLabel1
+            // lb_sınavSüre
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel1.Location = new System.Drawing.Point(256, 236);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(88, 24);
-            this.materialLabel1.TabIndex = 6;
-            this.materialLabel1.Text = "10 Dakika";
+            this.lb_sınavSüre.AutoSize = true;
+            this.lb_sınavSüre.Depth = 0;
+            this.lb_sınavSüre.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lb_sınavSüre.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lb_sınavSüre.Location = new System.Drawing.Point(256, 236);
+            this.lb_sınavSüre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lb_sınavSüre.Name = "lb_sınavSüre";
+            this.lb_sınavSüre.Size = new System.Drawing.Size(88, 24);
+            this.lb_sınavSüre.TabIndex = 6;
+            this.lb_sınavSüre.Text = "10 Dakika";
             // 
             // lb_tarih
             // 
@@ -320,6 +321,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.Controls.Add(this.materialCard3, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.materialCard4, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btn_zamanKaydet, 1, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -650,6 +652,27 @@
             this.materialLabel8.TabIndex = 0;
             this.materialLabel8.Text = "Lütfen sınavlarınızın zaman sıklığını seçiniz.";
             // 
+            // btn_zamanKaydet
+            // 
+            this.btn_zamanKaydet.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_zamanKaydet.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn_zamanKaydet.Depth = 0;
+            this.btn_zamanKaydet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_zamanKaydet.HighEmphasis = true;
+            this.btn_zamanKaydet.Icon = null;
+            this.btn_zamanKaydet.Location = new System.Drawing.Point(93, 532);
+            this.btn_zamanKaydet.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn_zamanKaydet.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_zamanKaydet.Name = "btn_zamanKaydet";
+            this.btn_zamanKaydet.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn_zamanKaydet.Size = new System.Drawing.Size(708, 48);
+            this.btn_zamanKaydet.TabIndex = 2;
+            this.btn_zamanKaydet.Text = "DEĞİŞİKLİKLERİ KAYDET";
+            this.btn_zamanKaydet.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn_zamanKaydet.UseAccentColor = false;
+            this.btn_zamanKaydet.UseVisualStyleBackColor = true;
+            this.btn_zamanKaydet.Click += new System.EventHandler(this.btn_zamanKaydet_Click);
+            // 
             // Profil
             // 
             this.Profil.Controls.Add(this.tableLayoutPanel6);
@@ -711,9 +734,8 @@
             this.lb_kayıt_tarih.Location = new System.Drawing.Point(321, 269);
             this.lb_kayıt_tarih.MouseState = MaterialSkin.MouseState.HOVER;
             this.lb_kayıt_tarih.Name = "lb_kayıt_tarih";
-            this.lb_kayıt_tarih.Size = new System.Drawing.Size(116, 19);
+            this.lb_kayıt_tarih.Size = new System.Drawing.Size(1, 0);
             this.lb_kayıt_tarih.TabIndex = 9;
-            this.lb_kayıt_tarih.Text = "materialLabel15";
             // 
             // lb_email
             // 
@@ -735,9 +757,9 @@
             this.materialLabel14.Location = new System.Drawing.Point(177, 153);
             this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
-            this.materialLabel14.Size = new System.Drawing.Size(58, 19);
+            this.materialLabel14.Size = new System.Drawing.Size(49, 19);
             this.materialLabel14.TabIndex = 7;
-            this.materialLabel14.Text = "10. sınıf";
+            this.materialLabel14.Text = "8. sınıf";
             // 
             // lb_soyad
             // 
@@ -1029,6 +1051,7 @@
             this.Reports.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
             this.materialCard4.ResumeLayout(false);
@@ -1060,7 +1083,7 @@
         private MaterialSkin.Controls.MaterialLabel lb_hosgeldin;
         private MaterialSkin.Controls.MaterialLabel lb_sınav_süre;
         private MaterialSkin.Controls.MaterialLabel lb_sınav_tarih;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel lb_sınavSüre;
         private MaterialSkin.Controls.MaterialLabel lb_tarih;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
@@ -1103,5 +1126,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialCard materialCard6;
         private MaterialSkin.Controls.MaterialLabel materialLabel15;
+        private MaterialSkin.Controls.MaterialButton btn_zamanKaydet;
     }
 }

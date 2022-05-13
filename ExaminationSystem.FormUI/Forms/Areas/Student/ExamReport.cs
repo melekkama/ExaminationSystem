@@ -1,4 +1,5 @@
 ﻿using ExaminationSystem.Entities.Concrete;
+using ExaminationSystem.FormUI.Dto;
 using ExaminationSystem.FormUI.Services;
 using ExaminationSystem.FormUI.States;
 using MaterialSkin.Controls;
@@ -13,5 +14,10 @@ public partial class ExamReport : MaterialForm
         InitializeComponent();
         defaultMaterialFormTheme.UseTheme(this);
         LoginUser = LoginUserState.User;
+    }
+
+    public void PrintResult(ExamResultDto dto)
+    {
+        lb_result.Text = $"{dto.CorrectCount} / {dto.Total}";
     }
 }

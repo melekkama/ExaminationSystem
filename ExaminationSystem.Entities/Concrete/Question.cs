@@ -1,4 +1,6 @@
-﻿namespace ExaminationSystem.Entities.Concrete;
+﻿using ExaminationSystem.Entities.Enums;
+
+namespace ExaminationSystem.Entities.Concrete;
 
 public class Question : EntityBase
 {
@@ -16,4 +18,6 @@ public class Question : EntityBase
     public Topic Topic { get; set; }
 
     public List<UserQuestion> UserQuestions { get; set; }
+
+    public Choose GetAnswer() => (Choose)Enum.Parse(typeof(Choose), Answer);
 }

@@ -18,4 +18,5 @@ public class ApplicationDbContext : DbContext
     public DbSet<Question> Questions { get; set; }
     public DbSet<UserQuestion> UserQuestions { get; set; }
     public DbSet<Topic> Topics { get; set; }
+    public DbSet<SigmaDate> SigmaDates { get; set; }
 }

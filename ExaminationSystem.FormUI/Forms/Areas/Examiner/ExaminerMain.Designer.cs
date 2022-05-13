@@ -261,7 +261,7 @@
             this.tb_c.Depth = 0;
             this.tb_c.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb_c.LeadingIcon = null;
-            this.tb_c.Location = new System.Drawing.Point(554, 230);
+            this.tb_c.Location = new System.Drawing.Point(141, 297);
             this.tb_c.MaxLength = 150;
             this.tb_c.MouseState = MaterialSkin.MouseState.OUT;
             this.tb_c.Multiline = false;
@@ -277,7 +277,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel5.Location = new System.Drawing.Point(448, 243);
+            this.materialLabel5.Location = new System.Drawing.Point(35, 310);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(24, 24);
@@ -290,7 +290,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.Location = new System.Drawing.Point(35, 310);
+            this.materialLabel4.Location = new System.Drawing.Point(448, 232);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(24, 24);
@@ -304,7 +304,7 @@
             this.tb_b.Depth = 0;
             this.tb_b.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb_b.LeadingIcon = null;
-            this.tb_b.Location = new System.Drawing.Point(141, 297);
+            this.tb_b.Location = new System.Drawing.Point(554, 219);
             this.tb_b.MaxLength = 150;
             this.tb_b.MouseState = MaterialSkin.MouseState.OUT;
             this.tb_b.Multiline = false;
