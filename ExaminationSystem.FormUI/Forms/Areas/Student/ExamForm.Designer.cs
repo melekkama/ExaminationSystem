@@ -203,6 +203,7 @@
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.pb_soru, 2);
             this.pb_soru.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_soru.Image = global::ExaminationSystem.FormUI.Properties.Resources.Picture1;
             this.pb_soru.Location = new System.Drawing.Point(3, 3);
             this.pb_soru.Name = "pb_soru";
             this.pb_soru.Size = new System.Drawing.Size(766, 112);
