@@ -271,6 +271,7 @@
             this.btn_start_exam.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btn_start_exam.UseAccentColor = false;
             this.btn_start_exam.UseVisualStyleBackColor = false;
+            this.btn_start_exam.Click += new System.EventHandler(this.btn_start_exam_Click);
             // 
             // Reports
             // 
@@ -1017,6 +1018,7 @@
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.Name = "StudentMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentMain";
             this.Load += new System.EventHandler(this.StudentMain_Load);
             this.materialTabControl1.ResumeLayout(false);
