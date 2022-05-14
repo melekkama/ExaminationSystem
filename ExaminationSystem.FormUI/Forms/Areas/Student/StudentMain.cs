@@ -1,5 +1,7 @@
 ﻿using ExaminationSystem.BLL.Interfaces;
 using ExaminationSystem.Entities.Concrete;
+using ExaminationSystem.Entities.Enums;
+using ExaminationSystem.FormUI.Dto;
 using ExaminationSystem.FormUI.ExtensionMethods;
 using ExaminationSystem.FormUI.Services;
 using ExaminationSystem.FormUI.States;
@@ -22,14 +24,16 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
         private readonly User LoginUser;
         private readonly IServiceProvider serviceProvider;
         private readonly IGenericService<SigmaDate> sigmaDateService;
+        private readonly IGenericService<Topic> topicService;
 
-        public StudentMain(IDefaultMaterialFormTheme defaultMaterialFormTheme, IServiceProvider serviceProvider, IGenericService<SigmaDate> sigmaDateService)
+        public StudentMain(IDefaultMaterialFormTheme defaultMaterialFormTheme, IServiceProvider serviceProvider, IGenericService<SigmaDate> sigmaDateService,IGenericService<Topic> topicService)
         {
             InitializeComponent();
             defaultMaterialFormTheme.UseTheme(this);
             LoginUser = LoginUserState.User;
             this.serviceProvider = serviceProvider;
             this.sigmaDateService = sigmaDateService;
+            this.topicService = topicService;
         }
 
         private void StudentMain_Load(object sender, EventArgs e)
@@ -39,6 +43,41 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             lb_soyad.Text = LoginUser.LastName;
             lb_email.Text = LoginUser.Email;
             lb_kayıt_tarih.Text = LoginUser.CreatedTime.ToShortDateString();
+            reportView();
+        }
+
+        private async void reportView()
+        {
+            List<ReportModel> reportModels = new();
+            var topics = await topicService.GetAllAsync("Questions", "Questions.UserQuestions");
+            foreach (var topic in topics)
+            {
+                ReportModel rm = new();
+                rm.TopicName = topic.Name;
+                var userQuestions = topic.Questions.Where(question=>question.UserQuestions.Any(x=>x.UserId==LoginUser.Id)).Select(x=>x.UserQuestions.FirstOrDefault(uq=>uq.UserId==LoginUser.Id));
+                var correctCount = userQuestions.Where(x => x.QuestionLevel > QuestionLevel.LevelZero).Count();
+                rm.Total = topic.Questions.Count;
+                rm.Saw = userQuestions.Count();
+                rm.Correct=correctCount;
+                reportModels.Add(rm);
+            }
+            foreach (var report in reportModels)
+            {
+                MaterialLabel name = new(), total = new(), saw = new(), correct = new(),percent=new();
+                name.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+                name.Text = report.TopicName;
+                name.Size = new Size(250,30);
+                total.Text = $"Total: {report.Total}";
+                saw.Text = $"Saw: {report.Saw}";
+                correct.Text = $"Correct: {report.Correct}";
+                var percentValue = report.Saw==0? 0: (int)((double)report.Correct/ report.Saw * 100);
+                percent.Text = $"Percent: %{percentValue}";
+                flp_report.Controls.Add(name);
+                flp_report.Controls.Add(total);
+                flp_report.Controls.Add(saw);
+                flp_report.Controls.Add(correct);
+                flp_report.Controls.Add(percent);
+            }
         }
 
         private void btn_start_exam_Click(object sender, EventArgs e)

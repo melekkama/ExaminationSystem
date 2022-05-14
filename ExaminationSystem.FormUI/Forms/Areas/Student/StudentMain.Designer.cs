@@ -43,6 +43,9 @@
             this.btn_start_exam = new MaterialSkin.Controls.MaterialButton();
             this.Reports = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.flp_report = new System.Windows.Forms.FlowLayoutPanel();
             this.Settings = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
@@ -92,6 +95,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.materialCard1.SuspendLayout();
             this.Reports.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.materialCard7.SuspendLayout();
             this.Settings.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -292,15 +297,57 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.Controls.Add(this.materialCard7, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.flp_report, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(890, 580);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // materialCard7
+            // 
+            this.materialCard7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard7.Controls.Add(this.materialLabel1);
+            this.materialCard7.Depth = 0;
+            this.materialCard7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard7.Location = new System.Drawing.Point(103, 14);
+            this.materialCard7.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard7.Name = "materialCard7";
+            this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard7.Size = new System.Drawing.Size(684, 59);
+            this.materialCard7.TabIndex = 0;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel1.Location = new System.Drawing.Point(203, 16);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(277, 29);
+            this.materialLabel1.TabIndex = 0;
+            this.materialLabel1.Text = "Konular ve Başarı Oranları";
+            // 
+            // flp_report
+            // 
+            this.flp_report.AutoScroll = true;
+            this.flp_report.AutoSize = true;
+            this.flp_report.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flp_report.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flp_report.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flp_report.Location = new System.Drawing.Point(92, 90);
+            this.flp_report.Name = "flp_report";
+            this.flp_report.Size = new System.Drawing.Size(706, 429);
+            this.flp_report.TabIndex = 1;
             // 
             // Settings
             // 
@@ -1049,6 +1096,10 @@
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.Reports.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.materialCard7.ResumeLayout(false);
+            this.materialCard7.PerformLayout();
             this.Settings.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -1127,5 +1178,8 @@
         private MaterialSkin.Controls.MaterialCard materialCard6;
         private MaterialSkin.Controls.MaterialLabel materialLabel15;
         private MaterialSkin.Controls.MaterialButton btn_zamanKaydet;
+        private MaterialSkin.Controls.MaterialCard materialCard7;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private FlowLayoutPanel flp_report;
     }
 }

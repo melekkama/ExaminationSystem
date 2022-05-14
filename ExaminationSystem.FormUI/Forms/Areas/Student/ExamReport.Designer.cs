@@ -30,6 +30,7 @@
         {
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.lb_result = new MaterialSkin.Controls.MaterialLabel();
+            this.btn_redirect = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -58,11 +59,33 @@
             this.lb_result.TabIndex = 1;
             this.lb_result.Text = "6 / 10";
             // 
+            // btn_redirect
+            // 
+            this.btn_redirect.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_redirect.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn_redirect.Depth = 0;
+            this.btn_redirect.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_redirect.HighEmphasis = true;
+            this.btn_redirect.Icon = null;
+            this.btn_redirect.Location = new System.Drawing.Point(3, 260);
+            this.btn_redirect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn_redirect.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_redirect.Name = "btn_redirect";
+            this.btn_redirect.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn_redirect.Size = new System.Drawing.Size(653, 36);
+            this.btn_redirect.TabIndex = 2;
+            this.btn_redirect.Text = "Öğrenci paneline git";
+            this.btn_redirect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn_redirect.UseAccentColor = false;
+            this.btn_redirect.UseVisualStyleBackColor = true;
+            this.btn_redirect.Click += new System.EventHandler(this.btn_redirect_Click);
+            // 
             // ExamReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 261);
+            this.ClientSize = new System.Drawing.Size(659, 299);
+            this.Controls.Add(this.btn_redirect);
             this.Controls.Add(this.lb_result);
             this.Controls.Add(this.materialLabel1);
             this.Name = "ExamReport";
@@ -76,5 +99,6 @@
 
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel lb_result;
+        private MaterialSkin.Controls.MaterialButton btn_redirect;
     }
 }
