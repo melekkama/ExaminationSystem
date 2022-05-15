@@ -28,6 +28,7 @@ public partial class ExamForm : MaterialForm
         this.userQuestionService = userQuestionService;
         this.sigmaDateService = sigmaDateService;
         Load += ExamForm_Load;
+        
     }
 
     private List<Question> _allQuestions;

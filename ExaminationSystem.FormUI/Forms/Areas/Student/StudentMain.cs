@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,16 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
 {
     public partial class StudentMain : MaterialForm
     {
+        Bitmap MemoryImage;
+        private PrintDocument printDocument1 = new();
+        private PrintPreviewDialog previewdlg = new();
+
         private readonly User LoginUser;
         private readonly IServiceProvider serviceProvider;
         private readonly IGenericService<SigmaDate> sigmaDateService;
         private readonly IGenericService<Topic> topicService;
 
-        public StudentMain(IDefaultMaterialFormTheme defaultMaterialFormTheme, IServiceProvider serviceProvider, IGenericService<SigmaDate> sigmaDateService,IGenericService<Topic> topicService)
+        public StudentMain(IDefaultMaterialFormTheme defaultMaterialFormTheme, IServiceProvider serviceProvider, IGenericService<SigmaDate> sigmaDateService, IGenericService<Topic> topicService)
         {
             InitializeComponent();
             defaultMaterialFormTheme.UseTheme(this);
@@ -34,6 +39,7 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             this.serviceProvider = serviceProvider;
             this.sigmaDateService = sigmaDateService;
             this.topicService = topicService;
+            printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
         }
 
         private void StudentMain_Load(object sender, EventArgs e)
@@ -53,27 +59,27 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             foreach (var topic in topics)
             {
                 ReportModel rm = new();
-                rm.Topic= topic;
-                var userQuestions = topic.Questions.Where(question=>question.UserQuestions.Any(x=>x.UserId==LoginUser.Id)).Select(x=>x.UserQuestions.FirstOrDefault(uq=>uq.UserId==LoginUser.Id));
+                rm.Topic = topic;
+                var userQuestions = topic.Questions.Where(question => question.UserQuestions.Any(x => x.UserId == LoginUser.Id)).Select(x => x.UserQuestions.FirstOrDefault(uq => uq.UserId == LoginUser.Id));
                 var correctCount = userQuestions.Where(x => x.QuestionLevel > QuestionLevel.LevelZero).Count();
                 rm.Total = topic.Questions.Count;
                 rm.Saw = userQuestions.Count();
-                rm.Correct=correctCount;
+                rm.Correct = correctCount;
                 reportModels.Add(rm);
             }
             foreach (var report in reportModels)
             {
                 MaterialButton name = new();
-                MaterialLabel  total = new(), saw = new(), correct = new(),percent=new();
+                MaterialLabel total = new(), saw = new(), correct = new(), percent = new();
                 name.Tag = report.Topic.Id;
                 name.Click += topicExamStart;
                 name.Type = MaterialButton.MaterialButtonType.Text;
                 name.Text = report.Topic.Name;
-                name.Size = new Size(250,30);
+                name.Size = new Size(250, 30);
                 total.Text = $"Total: {report.Total}";
                 saw.Text = $"Saw: {report.Saw}";
                 correct.Text = $"Correct: {report.Correct}";
-                var percentValue = report.Saw==0? 0: (int)((double)report.Correct/ report.Saw * 100);
+                var percentValue = report.Saw == 0 ? 0 : (int)((double)report.Correct / report.Saw * 100);
                 percent.Text = $"Percent: %{percentValue}";
                 flp_report.Controls.Add(name);
                 flp_report.Controls.Add(total);
@@ -85,11 +91,11 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
 
         private void topicExamStart(object sender, EventArgs e)
         {
-            var topicId=(Guid)((MaterialButton)sender).Tag;
+            var topicId = (Guid)((MaterialButton)sender).Tag;
             ExamForm form = serviceProvider.GetRequiredService<ExamForm>();
             form.TopicId = topicId;
             this.SwitchForm(form);
-        }   
+        }
 
         private void btn_start_exam_Click(object sender, EventArgs e)
         {
@@ -119,7 +125,7 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             var rangeFour = stringToDay(cb_aralık4.Text);
             var rangeFive = stringToDay(cb_aralık5.Text);
             var rangeSix = stringToDay(cb_aralık6.Text);
-            var sigmaDate= (await sigmaDateService.GetAllAsync()).FirstOrDefault();
+            var sigmaDate = (await sigmaDateService.GetAllAsync()).FirstOrDefault();
             sigmaDate.StepOneDate = rangeOne;
             sigmaDate.StepTwoDate = rangeTwo;
             sigmaDate.StepThreeDate = rangeThree;
@@ -129,6 +135,34 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             await sigmaDateService.UpdateAsync(sigmaDate);
             await sigmaDateService.SaveChangesAsync();
             MessageBox.Show("Sınav aralıkları güncellendi");
+        }
+
+        public void GetPrintArea(Panel pnl)
+        {
+            MemoryImage = new Bitmap(pnl.Width, pnl.Height);
+            pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (MemoryImage != null)
+                e.Graphics.DrawImage(MemoryImage, 0, 0);
+            base.OnPaint(e);
+        }
+        void printdoc1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Rectangle pagearea = e.PageBounds;
+            e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.flp_report.Width / 2), this.flp_report.Location.Y);
+        }
+        public void Print(Panel pnl)
+        {
+            GetPrintArea(pnl);
+            previewdlg.Document = printDocument1;
+            previewdlg.ShowDialog();
+        }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            Print(this.flp_report);
         }
     }
 }
