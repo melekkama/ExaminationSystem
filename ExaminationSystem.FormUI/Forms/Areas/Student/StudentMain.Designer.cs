@@ -46,6 +46,7 @@
             this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.flp_report = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_print = new MaterialSkin.Controls.MaterialButton();
             this.Settings = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
@@ -299,6 +300,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.Controls.Add(this.materialCard7, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.flp_report, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btn_print, 1, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -348,6 +350,27 @@
             this.flp_report.Name = "flp_report";
             this.flp_report.Size = new System.Drawing.Size(706, 429);
             this.flp_report.TabIndex = 1;
+            // 
+            // btn_print
+            // 
+            this.btn_print.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_print.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn_print.Depth = 0;
+            this.btn_print.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_print.HighEmphasis = true;
+            this.btn_print.Icon = null;
+            this.btn_print.Location = new System.Drawing.Point(93, 528);
+            this.btn_print.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn_print.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_print.Name = "btn_print";
+            this.btn_print.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn_print.Size = new System.Drawing.Size(704, 46);
+            this.btn_print.TabIndex = 2;
+            this.btn_print.Text = "Yazdır";
+            this.btn_print.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn_print.UseAccentColor = false;
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // Settings
             // 
@@ -1181,5 +1204,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard7;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private FlowLayoutPanel flp_report;
+        private MaterialSkin.Controls.MaterialButton btn_print;
     }
 }
