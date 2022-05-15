@@ -53,7 +53,7 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             foreach (var topic in topics)
             {
                 ReportModel rm = new();
-                rm.TopicName = topic.Name;
+                rm.Topic= topic;
                 var userQuestions = topic.Questions.Where(question=>question.UserQuestions.Any(x=>x.UserId==LoginUser.Id)).Select(x=>x.UserQuestions.FirstOrDefault(uq=>uq.UserId==LoginUser.Id));
                 var correctCount = userQuestions.Where(x => x.QuestionLevel > QuestionLevel.LevelZero).Count();
                 rm.Total = topic.Questions.Count;
@@ -63,9 +63,12 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
             }
             foreach (var report in reportModels)
             {
-                MaterialLabel name = new(), total = new(), saw = new(), correct = new(),percent=new();
-                name.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-                name.Text = report.TopicName;
+                MaterialButton name = new();
+                MaterialLabel  total = new(), saw = new(), correct = new(),percent=new();
+                name.Tag = report.Topic.Id;
+                name.Click += topicExamStart;
+                name.Type = MaterialButton.MaterialButtonType.Text;
+                name.Text = report.Topic.Name;
                 name.Size = new Size(250,30);
                 total.Text = $"Total: {report.Total}";
                 saw.Text = $"Saw: {report.Saw}";
@@ -79,6 +82,14 @@ namespace ExaminationSystem.FormUI.Forms.Areas.Student
                 flp_report.Controls.Add(percent);
             }
         }
+
+        private void topicExamStart(object sender, EventArgs e)
+        {
+            var topicId=(Guid)((MaterialButton)sender).Tag;
+            ExamForm form = serviceProvider.GetRequiredService<ExamForm>();
+            form.TopicId = topicId;
+            this.SwitchForm(form);
+        }   
 
         private void btn_start_exam_Click(object sender, EventArgs e)
         {

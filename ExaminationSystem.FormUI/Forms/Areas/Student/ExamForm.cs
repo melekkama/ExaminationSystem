@@ -30,6 +30,7 @@ public partial class ExamForm : MaterialForm
         Load += ExamForm_Load;
     }
 
+    private List<Question> _allQuestions;
     private List<Question> _questions;
     private List<Choose> _chooses;
     private int _index = 0;
@@ -38,21 +39,20 @@ public partial class ExamForm : MaterialForm
 
     private List<UserQuestion> _userQuestions;
 
-    private async void ExamForm_Load(object sender, EventArgs e)
+    public Guid? TopicId { get; set; }
+
+    private void LoadWithTopic()
     {
-        _chooses = new List<Choose>();
-
-        _userQuestions = (await userQuestionService.GetAllAsync()).Where(x => x.UserId == LoginUser.Id).ToList();
-
-        var allQuestions = await questionService.GetAllAsync("UserQuestions");
-        var activatedQuestions = allQuestions.Where(question => question.IsActive).ToList();
-        _questions = activatedQuestions.Where(question =>
+        _questions = _allQuestions.Where(x => x.TopicId == TopicId).OrderBy(question => Random.Shared.Next()).Take(10).ToList();
+    }
+    private void LoadWithoutTopic()
+    {
+        _questions = _allQuestions.Where(question =>
         question.UserQuestions.FirstOrDefault(x => x.UserId == LoginUser.Id)?.QuestionLevel == QuestionLevel.LevelZero ||
         !question.UserQuestions.Any(x => x.UserId == LoginUser.Id))
             .OrderBy(question => Random.Shared.Next()).Take(10).ToList();
-
-        var sigmaQuestions = activatedQuestions
-            .Where(question => question.UserQuestions.Any(x => x.UserId == LoginUser.Id));
+        var sigmaQuestions = _allQuestions
+           .Where(question => question.UserQuestions.Any(x => x.UserId == LoginUser.Id));
         foreach (var question in sigmaQuestions)
         {
             var userQuestion = question.UserQuestions.FirstOrDefault(x => x.UserId == LoginUser.Id);
@@ -61,6 +61,19 @@ public partial class ExamForm : MaterialForm
             if (DateTime.Now.Date == date.Value.Date)
                 _questions.Add(question);
         }
+
+    }
+    private async void ExamForm_Load(object sender, EventArgs e)
+    {
+        _chooses = new List<Choose>();
+        _userQuestions = (await userQuestionService.GetAllAsync()).Where(x => x.UserId == LoginUser.Id).ToList();
+        _allQuestions = (await questionService.GetAllAsync("UserQuestions")).Where(question => question.IsActive).ToList();
+
+        if (TopicId is null)
+            LoadWithoutTopic();
+        else
+            LoadWithTopic();
+
         _time = TimeSpan.FromMinutes(_questions.Count);
         lb_timer.Text = _time.ToString();
         drawQuestion();
@@ -83,7 +96,31 @@ public partial class ExamForm : MaterialForm
         lb_count.Text = $"{_index + 1}/{_questions.Count}";
     }
 
-    private async void examFinish()
+    private  void ExamFinish()
+    {
+        if (TopicId is null)
+             ExamFinishWithoutTopic();
+        else
+            ExamFinishWithTopic();
+    }
+
+    private  void ExamFinishWithTopic()
+    {
+        ExamResultDto dto = new();
+        dto.Total = _questions.Count;
+        for (int i = 0; i < _questions.Count; i++)
+        {
+            var question = _questions.ElementAt(i);
+            var questionAnswer = question.GetAnswer();
+            var choose = _chooses.ElementAt(i);
+            if (choose == questionAnswer)
+                dto.CorrectCount++;
+        }
+        ExamReport form = serviceProvider.GetRequiredService<ExamReport>();
+        form.PrintResult(dto);
+        this.SwitchForm(form);
+    }
+    private async void ExamFinishWithoutTopic()
     {
         ExamResultDto dto = new();
         dto.Total = _questions.Count;
@@ -141,7 +178,7 @@ public partial class ExamForm : MaterialForm
         _index++;
         if (_index == _questions.Count)
         {
-            examFinish();
+            ExamFinish();
             return;
         }
         if (_index == _questions.Count - 1)
@@ -156,7 +193,7 @@ public partial class ExamForm : MaterialForm
         if (_time == TimeSpan.Zero)
         {
             exam_timer.Stop();
-            examFinish();
+            ExamFinish();
         }
     }
 }
