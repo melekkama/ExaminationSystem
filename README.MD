@@ -22,15 +22,20 @@ You will need the following tools:
 [![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/1.1.png?raw=true)](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/1.1.png?raw=true)
 ![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/1.png?raw=true)
 ![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/2.png?raw=true)
-https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/3.png?raw=true
 ![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/4.png?raw=true)
 ![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/5.png?raw=true)
 ![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/6.png?raw=true)
+![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/7.png?raw=true)
+![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/8.png?raw=true)
   
-  #### Important code lines about implementing six sigma rules
+#### DATABASE DIAGRAM
   
-  ![image](https://user-images.githubusercontent.com/96582800/169146172-1e01079a-a99a-4fcc-b9b8-69386f87db40.png)
-![image](https://user-images.githubusercontent.com/96582800/169146320-d4677bd5-cfc8-4996-a5de-41462be469d0.png)
+![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/db.jpg?raw=true)
+  
+#### Important code lines about implementing six sigma rules
+  
+![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/9.png?raw=true)
+![](https://github.com/melekkama/ExaminationSystem/blob/master/Screen%20Shots/10.png?raw=true)
 
 ## Author
 👤 **Melek KAMA**
